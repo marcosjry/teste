@@ -4,7 +4,13 @@ import java.util.List;
 public class Main {
 
 public static boolean validaLista(List<ObjetoTeste> lista, StatusTeste status) {
-        return lista.stream().allMatch(item -> item.getStatusTeste() == status);
+    // só troquei pelo foreach para ficar mais legível
+        for(ObjetoTeste item : lista) {
+            if (item.getStatusTeste() != status) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
